@@ -1,1 +1,9 @@
-# GGH
+#GGH_2k23 Ideathon
+
+The stage of Structural Testing plays a crucial role in the lifecycle of silicon design, as it aims to ensure the precision of device manufacturing. While Design/Functional Verification mainly concentrates on confirming the logical aspects, various problems can occur during the manufacturing phase. In light of this, I have developed a potential input vector that can efficiently identify faults at any specific point, removing the requirement for exhaustive checks of manufactured chips with every combination of inputs.
+
+In order to execute the code, you need to make initial modifications to the input.txt file by providing the circuit format as demonstrated in the attached input.txt file. Ensure that each node is meticulously documented on a separate line. The circuit comprises four inputs, namely A, B, C, and D, all of which are boolean values (only accepting 0 and 1 as valid inputs). The output of the circuit is always denoted by Z, also a boolean value. The circuit construction involves the utilization of specific operations, including the AND (&) gate, OR (|) gate, NOT (~) gate, and XOR (^) gate. It is important to note that the circuit solely operates as a combinational logic.
+
+To input the fault type and location, as you execute the code, you will be prompted to provide the fault location along with the fault type. The fault type can either be SA0, representing a stuck-at-0 fault where a node cannot reach the value 1 regardless of the inputs, or SA1, indicating a stuck-at-1 fault where a node cannot attain the value 0 irrespective of the inputs.
+
+Upon running the code, you will receive the corresponding vector in the output.txt file, along with the output value (value of node Z) in the faulty circuit, which will differ from that of the non-faulty circuit. If the fault is ATPG untestable, this will be indicated in the output.txt file.
