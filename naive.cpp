@@ -177,25 +177,25 @@ int main()
     // Generate all possible input vectors
     vector<vector<int>> inputVectors = generate(4);
 
+    // Apply the fault at the given node
+    Circuit faultyCircuit = circuit;
+    if (faultType == "SA0")
+    {
+        faultyCircuit[faultNode] = "0";
+    }
+    else if (faultType == "SA1")
+    {
+        faultyCircuit[faultNode] = "1";
+    }
+    else
+    {
+        cout << "Invalid fault type: " << faultType << endl;
+        return 0;
+    }
+
     // Iterate through each input vector
     for (auto inputVector : inputVectors)
     {
-        // Apply the fault at the given node
-        Circuit faultyCircuit = circuit;
-        if (faultType == "SA0")
-        {
-            faultyCircuit[faultNode] = "0";
-        }
-        else if (faultType == "SA1")
-        {
-            faultyCircuit[faultNode] = "1";
-        }
-        else
-        {
-            cout << "Invalid fault type: " << faultType << endl;
-            return 0;
-        }
-
         // Simulate the circuit with fault-free inputs and record the expected Op value
         int expectedOp = evalCircuit(circuit, inputVector);
 
